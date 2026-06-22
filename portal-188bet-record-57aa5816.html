@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>188bet · 日常运动与赛事灵感站</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background: #f0f6f9;
+            color: #1b2d3b;
+            line-height: 1.6;
+            padding: 0 20px;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 40px 0 60px;
+        }
+
+        /* Hero */
+        .hero {
+            background: linear-gradient(145deg, #0e3b4f 0%, #1b5b6f 100%);
+            border-radius: 32px;
+            padding: 48px 36px 52px;
+            color: #f4fafd;
+            box-shadow: 0 15px 30px -8px rgba(0, 50, 60, 0.25);
+            margin-bottom: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: -80px;
+            right: -80px;
+            width: 280px;
+            height: 280px;
+            background: radial-gradient(circle, rgba(100, 210, 200, 0.12) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            max-width: 600px;
+            line-height: 1.2;
+        }
+
+        .hero h1 span {
+            color: #7fdfd0;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin-bottom: 28px;
+            opacity: 0.9;
+        }
+
+        .hero .tagline {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(2px);
+            padding: 8px 22px;
+            border-radius: 60px;
+            border: 1px solid rgba(120, 210, 190, 0.3);
+            font-size: 0.95rem;
+            color: #bef0e6;
+        }
+
+        /* 网格卡片区 */
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #0a3846;
+            margin: 40px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, #3baa9e, transparent);
+        }
+
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 24px 20px;
+            box-shadow: 0 8px 18px rgba(0, 30, 40, 0.04);
+            border: 1px solid #deedf2;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px -6px rgba(0, 60, 70, 0.08);
+            border-color: #6ecfc1;
+        }
+
+        .card .emoji-icon {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #094051;
+            margin-bottom: 8px;
+        }
+
+        .card p {
+            font-size: 0.95rem;
+            color: #2b4b5a;
+        }
+
+        /* 说明区块 */
+        .info-block {
+            background: #e6f2f7;
+            border-radius: 28px;
+            padding: 32px 32px 36px;
+            margin: 40px 0;
+            border-left: 6px solid #2caa9a;
+        }
+
+        .info-block h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #06323f;
+            margin-bottom: 16px;
+        }
+
+        .info-block p {
+            color: #1b3e4b;
+            max-width: 720px;
+            margin-bottom: 14px;
+        }
+
+        .info-block .highlight {
+            background: #d3e9ef;
+            padding: 4px 12px;
+            border-radius: 40px;
+            color: #064455;
+            font-weight: 500;
+            display: inline-block;
+        }
+
+        /* FAQ 摘要 */
+        .faq-summary {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px 28px;
+            margin: 30px 0 40px;
+            background: #fafdfe;
+            border-radius: 28px;
+            padding: 30px 28px;
+            border: 1px solid #cfe2e9;
+        }
+
+        .faq-item {
+            padding: 6px 0;
+        }
+
+        .faq-item strong {
+            display: block;
+            margin-bottom: 4px;
+            color: #074553;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .faq-item span {
+            font-size: 0.9rem;
+            color: #2a5a68;
+        }
+
+        .faq-more {
+            grid-column: 1 / -1;
+            text-align: right;
+            font-size: 0.9rem;
+            color: #2a8a7b;
+            padding-top: 8px;
+            border-top: 1px solid #d7e6ed;
+        }
+
+        /* 底部链接 */
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding: 28px 0 6px;
+            border-top: 1px solid #cbdbe4;
+            margin-top: 20px;
+        }
+
+        .footer-links a {
+            color: #0b5e6b;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 6px 0;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #0b8f7c;
+            text-decoration: underline;
+        }
+
+        .footer-links .brand {
+            font-weight: 600;
+            color: #084553;
+            font-size: 0.95rem;
+        }
+
+        .footer-note {
+            text-align: center;
+            color: #53717e;
+            font-size: 0.85rem;
+            margin-top: 28px;
+            padding-top: 16px;
+            border-top: 1px solid #d8e3e9;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body { padding: 0 14px; }
+            .hero { padding: 32px 20px; }
+            .hero h1 { font-size: 1.9rem; }
+            .faq-summary { grid-template-columns: 1fr; }
+            .footer-links { flex-direction: column; align-items: flex-start; gap: 10px; }
+        }
+
+        @media (max-width: 460px) {
+            .hero h1 { font-size: 1.6rem; }
+            .grid-cards { grid-template-columns: 1fr; }
+            .info-block { padding: 24px 18px; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="tagline">⚡ 运动灵感 · 日常节奏</div>
+        <h1>和 <span>188bet</span> 一起<br>感受赛场与生活的脉动</h1>
+        <p>从晨间慢跑到深夜赛事，每一个热爱瞬间都值得被标记。<br>这里聚合运动文化、数据视野与社区讨论，帮你找到属于自己的运动节奏。</p>
+    </div>
+
+    <!-- 优势区：网格卡片 -->
+    <div class="section-title">✦ 为什么值得留意</div>
+    <div class="grid-cards">
+        <div class="card">
+            <span class="emoji-icon">🏃</span>
+            <h3>赛事解读</h3>
+            <p>覆盖主流联赛与新兴运动，从战术到趋势，用简单语言还原比赛亮点。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-icon">📊</span>
+            <h3>数据视角</h3>
+            <p>关键统计、历史对照、实时动态——让数字帮你理解赛场格局。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-icon">💬</span>
+            <h3>同好交流</h3>
+            <p>不只有资讯，还有观点碰撞。和各地运动爱好者一起聊聊比赛与训练日常。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-icon">🧘</span>
+            <h3>生活化内容</h3>
+            <p>运动不是只有输赢，也有饮食、恢复、心理调节，这里也谈这些。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-icon">🌍</span>
+            <h3>全球视野</h3>
+            <p>不只关注顶级赛事，也挖掘小众项目与文化，拓展运动认知边界。</p>
+        </div>
+        <div class="card">
+            <span class="emoji-icon">🔔</span>
+            <h3>动态提醒</h3>
+            <p>重要赛程、突发消息、社区热帖——不错过任何关键节点。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：场景与提示 -->
+    <div class="info-block">
+        <h2>不只是资讯平台，更是一种陪伴</h2>
+        <p>我们相信，每个人参与运动的方式都不同。有人喜欢研究阵容与赔率，有人只想在通勤时看一眼最新赛果。<strong>188bet</strong> 为这些场景提供轻量而扎实的内容：从周末观赛指南到恢复训练小贴士，从社区热议到独家数据简析。</p>
+        <p>这里不制造焦虑，也不承诺“必胜秘诀”。我们更在意用真实的信息帮你在忙碌日常里留出一点运动时间——无论你是资深爱好者还是刚刚起步。</p>
+        <p class="highlight">✅ 内容经过筛选，避免浮夸表述。所有信息仅供参考，请结合个人判断。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <div class="section-title">📌 常见疑问 · 快速了解</div>
+    <div class="faq-summary">
+        <div class="faq-item">
+            <strong>内容更新频率如何？</strong>
+            <span>每日至少 1 篇赛事解读或运动相关文章，重要比赛日会加更。</span>
+        </div>
+        <div class="faq-item">
+            <strong>需要注册才能看吗？</strong>
+            <span>大部分内容可直接浏览，部分互动功能需简单注册。</span>
+        </div>
+        <div class="faq-item">
+            <strong>可以投稿或推荐主题吗？</strong>
+            <span>目前支持后台留言，社区板块会逐步开放用户分享。</span>
+        </div>
+        <div class="faq-item">
+            <strong>是否提供移动端优化？</strong>
+            <span>页面自适应手机与平板，随时随地打开 <a href="https://portal-188bet.com" style="color:#1b7a6b; text-decoration:underline;">188bet</a> 即可阅读。</span>
+        </div>
+        <div class="faq-more">
+            —— 更多细节可浏览页面底部链接 ——
+        </div>
+    </div>
+
+    <!-- 底部链接区 -->
+    <div class="footer-links">
+        <span class="brand">⚡ 188bet  · 运动日常</span>
+        <nav style="display: flex; flex-wrap: wrap; gap: 18px;">
+            <a href="https://portal-188bet.com">188bet</a>
+            <a href="https://portal-188bet.com" style="font-weight:400;">188bet</a>
+            <a href="https://portal-188bet.com" style="font-weight:400;">188bet</a>
+            <a href="https://portal-188bet.com" style="font-weight:400;">188bet</a>
+        </nav>
+    </div>
+
+    <div class="footer-note">
+        所有信息仅供兴趣参考，不构成任何专业建议。请根据自身情况合理参与运动。<br>
+        © 2025 · 一个热爱运动与分享的角落
+    </div>
+
+</div>
+</body>
+</html>
